@@ -1,0 +1,38 @@
+import java.util.Scanner;
+
+public class Main {
+    static int desen(int n, boolean x, int sayac) {
+
+        if (x) {
+            if (n > 0) {
+                System.out.print(n + " ");
+                sayac++;
+                return desen(n - 5, true, sayac);
+            } else {
+                return desen(n, false, sayac);
+            }
+        } else {
+            System.out.print(n + " ");
+            if (sayac > 0) {
+                sayac--;
+                return desen(n + 5, false, sayac);
+            } else {
+                return 0;
+            }
+        }
+
+    }
+
+    public static void main(String[] args) {
+        int n;
+        Scanner input = new Scanner(System.in);
+
+        System.out.print("N Sayısı : ");
+        n = input.nextInt();
+
+        System.out.print("Çıktısı : ");
+        desen(n, true, 0);
+
+    }
+
+}
